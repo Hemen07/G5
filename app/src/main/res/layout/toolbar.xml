@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    app:contentInsetEnd="0dp"
+    app:contentInsetLeft="0dp"
+    app:contentInsetRight="0dp"
+    app:contentInsetStart="0dp">
+
+<!--    toolbar height 56 is official, move it to inside dimens-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#673AB7">
+
+
+<!--        5
+
+I have a ImageView with a 24x24 dp icon,
+ so the complete ImageView and touch area is only 24x24dp,
+while the recommended minimum touch target area is 48x48dp.
+
+Make the button width 48dp or add some padding.
+-->
+        <!--    TODO#1    Here, REMOVED H and W as 48 dp, and ADDED PADDING-->
+<!--        24 vector size + padding all around 12-->
+        <ImageButton
+            android:id="@+id/btnToolbarBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:background="@color/transparent"
+            android:importantForAccessibility="no"
+            android:padding="12dp"
+            android:scaleType="center"
+            android:src="@drawable/ic_arrow_back_white"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+<!--     TODO#2     Here, REMOVED PADDING, added 48 as H and W-->
+<!--      make sure this you provide from dimens file   -->
+<!--     TODO - NICE finally !! this also serves as proper solution   -->
+<!--        -->
+<!--        <ImageButton-->
+<!--            android:id="@+id/btnToolbarBack"-->
+<!--            android:layout_width="48dp"-->
+<!--            android:layout_height="48dp"-->
+<!--            android:layout_alignParentStart="true"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            android:background="@color/transparent"-->
+<!--            android:importantForAccessibility="no"-->
+<!--            android:src="@drawable/ic_arrow_back_white"-->
+<!--            android:visibility="visible"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+        <TextView
+            android:fontFamily="sans-serif-condensed-medium"
+            android:id="@+id/toolbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:ellipsize="end"
+            android:text="@string/app_name"
+            android:maxLines="1"
+            android:paddingStart="48dp"
+            android:paddingEnd="48dp"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.appcompat.widget.Toolbar>
