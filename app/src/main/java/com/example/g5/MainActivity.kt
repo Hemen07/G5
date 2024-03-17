@@ -2,6 +2,7 @@ package com.example.g5
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,6 +13,7 @@ import com.example.g5.ui.base.BaseActivity
 import com.example.g5.ui.features.two.G1Adapter
 import com.example.g5.ui.features.two.MyCustomDialog
 import com.example.g5.ui.features.two.VM
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -49,14 +51,16 @@ class MainActivity : BaseActivity() {
         vM.fetchGitTrendingRepoList()
     }
 
-
     private fun initView() {
-        //
         binding.apply {
-            btnTwo.text = "Loading .........."
-            btnOne.setOnClickListener {
-                Log.w(TAG, "initView: btnOne")
-                myCustomDialog.showDialog()
+            toolbarMain.imvHelp.setOnClickListener {
+                Snackbar.make(it, "Bangalore is hot !! ", Snackbar.LENGTH_LONG).show()
+            }
+            swipeMain.swiperefresh.setOnRefreshListener {
+                Log.i(TAG, "swipe: ")
+                swipeMain.swiperefresh.isRefreshing = false
+                Snackbar.make(this.swipeMain.swiperefresh, "Nothing..", Snackbar.LENGTH_SHORT)
+                    .show()
             }
         }
     }
@@ -64,9 +68,12 @@ class MainActivity : BaseActivity() {
     private fun initRecyclerView() {
         g1Adapter = G1Adapter(onClickPosition = { pos: Int ->
             Log.w(TAG, "||||||  onClick $pos ")
+        }, onAvatarClickPosition = { pos: Int ->
+            Log.w(TAG, "||||||  avatar onClick $pos ")
+            myCustomDialog.showDialog(g1Adapter.getTodoList()[pos])
         })
         //
-        binding.rv.apply {
+        binding.swipeMain.rv.apply {
             layoutManager =
                 LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
             itemAnimator = DefaultItemAnimator()
@@ -75,7 +82,6 @@ class MainActivity : BaseActivity() {
         g1Adapter.loadEmptyData()
     }
 
-
     /**
      * Generic observer
      * Uses [ClientApiResult]
@@ -83,7 +89,7 @@ class MainActivity : BaseActivity() {
     private fun vmGenericObserver() {
         Log.d(TAG, "vmGenericObserver: ")
         vM.uiState().observe(this@MainActivity) { state ->
-            binding.btnTwo.text = "TWO"
+            binding.progressBar.visibility = View.GONE
             when (state) {
                 is ClientApiResult.Loading -> {
                     Log.i(TAG, "vmGenericObserver:  observe -> LOADING")

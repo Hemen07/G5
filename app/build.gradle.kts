@@ -91,5 +91,8 @@ dependencies {
     // Coil- Kotlin, compose has different dependency
     implementation("io.coil-kt:coil:2.6.0")
 
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+
+
 
 }

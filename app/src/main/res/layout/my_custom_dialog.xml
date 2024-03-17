@@ -3,19 +3,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#38363C">
+    android:background="@drawable/shape_custom_dialog">
+
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Avatar"
+        android:textColor="#685F5F"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/img_my_custom_dialog"
         android:layout_width="300dp"
         android:layout_height="300dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/shape_default"
-        android:contentDescription="coil"
         android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:contentDescription="coil"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
 
     <Button
@@ -24,7 +38,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="10dp"
-        android:text="LOAD"
+        android:layout_marginBottom="10dp"
+        android:text="WHO AM I"
+        android:textColor="#fff"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/img_my_custom_dialog" />
 
@@ -34,8 +51,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="50dp"
-        android:backgroundTint="#009688"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="#E91E63"
         android:text="OKAY"
+        android:textColor="#fff"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/img_my_custom_dialog" />
 </androidx.constraintlayout.widget.ConstraintLayout>

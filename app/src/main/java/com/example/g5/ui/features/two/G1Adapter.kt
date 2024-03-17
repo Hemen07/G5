@@ -14,7 +14,8 @@ import com.example.g5.domain.entities.responses.ClientGithub
 private const val TAG = "G5-G1Adapter : "
 
 class G1Adapter(
-    private val onClickPosition: ((clickedPos: Int) -> Unit)
+    private val onClickPosition: ((clickedPos: Int) -> Unit),
+    private val onAvatarClickPosition: ((clickedPos: Int) -> Unit),
 ) :
     RecyclerView.Adapter<G1Adapter.G1ViewHolder>() {
 
@@ -72,6 +73,7 @@ class G1Adapter(
                 }
                 imvAuthor.setOnClickListener {
                     Log.i(TAG, "bind: IMAGE at pos = $adapterPosition")
+                    onAvatarClickPosition.invoke(adapterPosition)
                 }
             }
         }
