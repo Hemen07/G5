@@ -7,17 +7,6 @@
     android:layout_height="wrap_content"
     android:background="#000000">
 
-    <!-- COMMON THING
-    1.Don't use match parent for ConstraintLayout
-    // at-least for direct children of ConstraintLayout
-    -->
-
-    <!--
-     For Left with wrap content/custom length
-     used below
-     app:layout_constraintStart_toStartOf="parent"
-     app:layout_constraintTop_toTopOf="parent"
-    -->
     <TextView
         android:id="@+id/tvAuthorName"
         android:layout_width="wrap_content"
@@ -32,10 +21,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <!--
-    After I point end to start of id switch with width as match_parent
-    it was pushing the switch out of bound, so set width to 0dp
-    -->
     <TextView
         android:id="@+id/tvRepoName"
         android:layout_width="0dp"

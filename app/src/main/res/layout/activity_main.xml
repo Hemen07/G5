@@ -11,8 +11,6 @@
         android:id="@+id/toolbarMain"
         layout="@layout/toolbar" />
 
-    <!--    56 toolbar, +10 , so 66dp-->
-    <!--    invisible at runtime.-->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
         android:layout_width="0dp"

@@ -1,6 +1,3 @@
-// this one has to be at top
-// I write it coz I will be moving to subProject thingy like that
-
 buildscript {
     println("... buildscript")
     // ext -
