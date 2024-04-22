@@ -40,7 +40,6 @@ internal fun <T> ApiResult<T>.apiMapToClient(): ClientApiResult<T> {
 
 /**
  * Result Mapper for conversion from [ApiResult] to [ClientApiResult]
- * Just adjusted Vinay's mapper: T.(Map<String, Any>?) -> R
  */
 internal fun <T, R> ApiResult<T>.apiMapToClient(mapper: T.() -> R): ClientApiResult<R> {
     Log.d(TAG, "apiMapToClient: ")

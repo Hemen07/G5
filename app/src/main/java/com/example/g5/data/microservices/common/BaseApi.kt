@@ -18,7 +18,7 @@ open class BaseApi() {
      * HandleApi/ safeCallApi
      * -----------------------
      */
-    suspend fun <T : Any> handleApi(execute: suspend () -> Response<T>): ApiResult<T> {
+    suspend fun <T> handleApi(execute: suspend () -> Response<T>): ApiResult<T> {
         Log.d(TAG, "handleApi")
         // network lambda here
         return try {
